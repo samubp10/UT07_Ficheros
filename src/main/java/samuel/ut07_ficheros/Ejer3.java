@@ -22,27 +22,25 @@ public class Ejer3 {
 
 // Estructura try-with-resources. Instancia el objeto con el fichero a escribir
         // y se encarga de cerrar el recurso "flujo" una vez finalizadas las operaciones
-        try ( BufferedWriter flujo = new BufferedWriter(new FileWriter(idfichero))) {
+        try (BufferedWriter flujo = new BufferedWriter(new FileWriter(idfichero))) {
             Random random = new Random();
             char letra = ' ';
             for (int i = 0; i < 50; i++) {
                 do {
                     int enteroAleatorio = random.nextInt(2);
 
-                    if (enteroAleatorio == 0) {                        
+                    if (enteroAleatorio == 0) {
                         letra = (char) (random.nextInt(26) + 'a');
-                    } else if (enteroAleatorio == 1){
+                    } else if (enteroAleatorio == 1) {
                         letra = (char) (random.nextInt(26) + 'A');
                     }
 
                     // Usamos metodo write() para escribir en el buffer
                     flujo.write(letra + ", ");
-                    if(letra == 120 || letra == 90){
-                        break;
-                    }
-                }while(letra != 120 || letra != 90);
+
+                } while (letra != 120 || letra != 90);
                 // Metodo newLine() añade línea en blanco
-                 flujo.newLine();
+                flujo.newLine();
             }
             // Metodo flush() guarda cambios en disco 
             flujo.flush();

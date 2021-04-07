@@ -13,7 +13,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class Ejer01 {
+public class Ejer1 {
 
 //  1.- Implementa un programa que genere un fichero de texto en la carpeta 
 //  raíz del proyecto, llamado “matriz.txt”, donde se escriba la siguiente tabla
@@ -21,7 +21,8 @@ public class Ejer01 {
 //  y el salto de línea para añadir nuevas líneas. Ten en cuenta que 
 //  el programa debe ser escalable, de forma que se pueda 
 //  generar cualquier matriz que siga el patrón.
-    public static void main(String[] args) {
+    
+   public static void main(String[] args) {
         // Fichero a crear. Ruta relativa a la carpeta raíz del proyecto
         String idfichero = "matriz.txt";
 
