@@ -1,4 +1,4 @@
-package samuel.ut07_ficheros;
+package ejercicios;
 
 
 import java.io.BufferedReader;
