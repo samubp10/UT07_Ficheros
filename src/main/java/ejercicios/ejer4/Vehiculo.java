@@ -23,7 +23,7 @@ public class Vehiculo {
     @Override
     public String toString() {
         return "Vehiculo{" + "bastidor=" + bastidor + ", matricula=" + crearMatricula()
-                + ", marca=" + marca + "modelo=" + modelo + ", color=" + color
+                + ", marca=" + marca + ", modelo=" + modelo + ", color=" + color
                 + ", tarifa=" + tarifa + ", disponible=" + disponible + '}';
     }
 
@@ -158,4 +158,19 @@ public class Vehiculo {
     public void metodoVehiculo() {
         System.out.println("Método de vehículo");
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 53 * hash + Objects.hashCode(this.bastidor);
+        hash = 53 * hash + Objects.hashCode(this.matricula);
+        hash = 53 * hash + Objects.hashCode(this.marca);
+        hash = 53 * hash + Objects.hashCode(this.modelo);
+        hash = 53 * hash + Objects.hashCode(this.color);
+        hash = 53 * hash + (int) (Double.doubleToLongBits(this.tarifa) ^ (Double.doubleToLongBits(this.tarifa) >>> 32));
+        hash = 53 * hash + (this.disponible ? 1 : 0);
+        return hash;
+    }
+    
+    
 }

@@ -142,19 +142,34 @@ public class Ejer4 {
                 Vehiculo veh1 = generarVehiculo(i);
 
                 if (veh1 instanceof Deportivo) {
-                    flujo.write(1 + ":" + veh1.getMatricula() + ":" + veh1.getMarca() + ":" + veh1.getModelo()
-                            + ":" + veh1.getColor() + ":" + veh1.getBastidor() + ":" + ((Deportivo) veh1).getCilindrada() + ":"
-                            + veh1.getTarifa());
+                    flujo.write(1 + ":" + veh1.getMatricula() 
+                            + ":" + veh1.getMarca()
+                            + ":" + veh1.getModelo() 
+                            + ":" + veh1.getColor()
+                            + ":" + veh1.getBastidor() 
+                            + ":" + veh1.getTarifa()
+                            + ":" + veh1.isDisponible()
+                            + ":" + ((Deportivo) veh1).getCilindrada());
 
                 } else if (veh1 instanceof Turismo) {
-                    flujo.write(0 + ":" + veh1.getMatricula() + ":" + veh1.getMarca() + ":" + veh1.getModelo()
-                            + ":" + veh1.getColor() + ":" + veh1.getBastidor() + ":" + ((Turismo) veh1).getNumeroPuertas() + ":"
-                            + veh1.getTarifa());
+                    flujo.write(0 + ":" + veh1.getMatricula() 
+                            + ":" + veh1.getMarca() 
+                            + ":" + veh1.getModelo()
+                            + ":" + veh1.getColor() 
+                            + ":" + veh1.getBastidor()
+                            + ":" + veh1.getTarifa() 
+                            + ":" + veh1.isDisponible() 
+                            + ":" + ((Turismo) veh1).getNumeroPuertas());
                 } else if (veh1 instanceof Furgoneta) {
-                    flujo.write(2 + ":" + veh1.getMatricula() + ":" + veh1.getMarca() + ":"
-                            + veh1.getModelo() + ":" + veh1.getColor() + ":" + veh1.getBastidor()
-                            + ":" + ((Furgoneta) veh1).getCarga() + ":"
-                            + veh1.getTarifa() + ":" + ((Furgoneta) veh1).getVolumen());
+                    flujo.write(2 + ":" + veh1.getMatricula() 
+                            + ":" + veh1.getMarca() 
+                            + ":" + veh1.getModelo() 
+                            + ":" + veh1.getColor() 
+                            + ":" + veh1.getBastidor() 
+                            + ":" + veh1.getTarifa() 
+                            + ":" + veh1.isDisponible()
+                            + ":" + ((Furgoneta) veh1).getCarga() 
+                            + ":" + ((Furgoneta) veh1).getVolumen());
                 }
 
                 // Metodo newLine() añade línea en blanco
