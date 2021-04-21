@@ -1,5 +1,6 @@
-package ejercicios.ejer4;
+package ejercicios.ejer9;
 
+import ejercicios.ejer4.*;
 import java.util.Comparator;
 import java.util.Objects;
 import java.util.Random;
