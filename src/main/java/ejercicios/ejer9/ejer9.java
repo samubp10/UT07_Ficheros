@@ -11,8 +11,6 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -24,13 +22,19 @@ public class ejer9 {
     public static void main(String[] args) {
         String linea = "";
         String[] tokens;
-        int tipoVehiculo;
-        String idFichero = "vehículos.csv";
+        int tipoVehiculo = 0;
+        final String idFicher1 = "vehículos.csv";
+        final String idfichero2 = "Turismo.csv";
+        final String idfichero3 = "Deportivo.csv";
+        final String idfichero4 = "Furgoneta.csv";
         ArrayList<Vehiculo> vehiculos = new ArrayList<Vehiculo>();
         ArrayList<Deportivo> deportivos = new ArrayList<Deportivo>();
         ArrayList<Turismo> turismos = new ArrayList<Turismo>();
         ArrayList<Furgoneta> furgonetas = new ArrayList<Furgoneta>();
-        try ( Scanner datosFichero = new Scanner(new File(idFichero), "UTF-8")) {
+
+//        BufferedWriter flujo2 = new BufferedWriter(new FileWriter(idfichero3));
+//        BufferedWriter flujo3 = new BufferedWriter(new FileWriter(idfichero4));
+        try (Scanner datosFichero = new Scanner(new File(idFicher1), "UTF-8")) {
 
             datosFichero.nextLine();
             while (datosFichero.hasNextLine()) {
@@ -47,6 +51,14 @@ public class ejer9 {
                     tmp.setTarifa(Double.parseDouble(tokens[6]));
                     tmp.setDisponible(Boolean.valueOf(tokens[7]));
 
+                    if (tipoVehiculo == 0) {
+                        turismos.add((Turismo) tmp);
+                    } else if (tipoVehiculo == 1) {
+                        deportivos.add((Deportivo) tmp);
+                    } else if (tipoVehiculo == 2) {
+                        furgonetas.add((Furgoneta) tmp);
+                    }
+
                 }
                 vehiculos.add(tmp);
 
@@ -55,23 +67,18 @@ public class ejer9 {
             System.out.println(e.getMessage());
         }
 
-        String idfichero = "Turismo.csv";
-
-        try ( BufferedWriter flujo1 = new BufferedWriter(new FileWriter(idfichero))) {
+        try (BufferedWriter flujo1 = new BufferedWriter(new FileWriter(idfichero2))) {
             flujo1.write("TipoVehiculo:Matricula:Marca:Modelo:Color");
             flujo1.newLine();
-            for (Vehiculo veh1 : vehiculos) {
-
-                if (veh1 instanceof Turismo) {
-                    flujo1.write(0 + ":" + veh1.getMatricula()
-                            + ":" + veh1.getMarca()
-                            + ":" + veh1.getModelo()
-                            + ":" + veh1.getColor()
-                            + ":" + veh1.getBastidor()
-                            + ":" + veh1.getTarifa()
-                            + ":" + veh1.isDisponible()
-                            + ":" + ((Turismo) veh1).getNumeroPuertas());
-                }
+            for (Turismo veh1 : turismos) {
+                flujo1.write(0 + ":" + veh1.getMatricula()
+                        + ":" + veh1.getMarca()
+                        + ":" + veh1.getModelo()
+                        + ":" + veh1.getColor()
+                        + ":" + veh1.getBastidor()
+                        + ":" + veh1.getTarifa()
+                        + ":" + veh1.isDisponible());
+     //                   + ":" + ((Turismo) veh1).getNumeroPuertas());
 
                 // Metodo newLine() añade línea en blanco
                 flujo1.newLine();

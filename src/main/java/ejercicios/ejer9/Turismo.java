@@ -5,8 +5,6 @@
  */
 package ejercicios.ejer9;
 
-import ejercicios.ejer4.*;
-
 /**
  *
  * @author jcarlosvico@maralboran.es
